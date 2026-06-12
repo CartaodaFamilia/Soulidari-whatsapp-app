@@ -5,6 +5,24 @@ const api = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+api.interceptors.response.use(
+  res => res,
+  err => {
+    if (err.response?.status === 401) {
+      localStorage.removeItem('token');
+      window.location.href = '/login';
+    }
+    return Promise.reject(err);
+  }
+);
+
 export const getConversations = () => api.get('/api/conversations');
 export const getConversation = (id) => api.get(`/api/conversations/${id}`);
 export const getMessages = (conversationId) => api.get(`/api/messages/conversation/${conversationId}`);

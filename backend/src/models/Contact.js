@@ -18,6 +18,21 @@ class Contact {
     const { rows } = await pool.query('SELECT * FROM contacts WHERE wa_id = $1', [wa_id]);
     return rows[0];
   }
+
+
+ static async getAll() {
+  const query = `
+    SELECT c.*, 
+           CASE WHEN o.status = 'active' THEN true ELSE false END as opt_in
+    FROM contacts c
+    LEFT JOIN opt_ins o ON o.contact_wa_id = c.wa_id AND o.status = 'active'
+    ORDER BY c.created_at DESC
+  `;
+  const { rows } = await pool.query(query);
+  return rows;
 }
+}
+
+
 
 module.exports = Contact;
