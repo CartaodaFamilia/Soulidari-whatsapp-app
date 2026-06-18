@@ -1,18 +1,29 @@
-const axios = require("axios");
-const { getClientAccessToken, getClientPhoneNumberId } = require("./metaAuthService");
+const axios = require('axios');
 
-async function sendTextMessage(client_id, to, text) {
-  const token = await getClientAccessToken(client_id);
-  const phoneId = await getClientPhoneNumberId(client_id);
-  const url = `https://graph.facebook.com/${process.env.API_VERSION}/${phoneId}/messages`;
-  
-  return axios.post(url, {
-    messaging_product: "whatsapp",
-    to: to,
-    text: { body: text }
-  }, {
-    headers: { Authorization: `Bearer ${token}` }
-  } );
+async function sendTextMessage(to, text) {
+  const phoneNumberId = process.env.PHONE_NUMBER_ID;
+  const accessToken = process.env.META_ACCESS_TOKEN;
+
+  if (!phoneNumberId || !accessToken) {
+    throw new Error('PHONE_NUMBER_ID ou META_ACCESS_TOKEN não configurados');
+  }
+
+  const url = `https://graph.facebook.com/v23.0/${phoneNumberId}/messages`;
+
+  const response = await axios.post(
+    url,
+    {
+      messaging_product: 'whatsapp',
+      to: to,
+      text: { body: text }
+    },
+    {
+      headers: { Authorization: `Bearer ${accessToken}` },
+      timeout: 30000
+    }
+  );
+
+  return response.data;
 }
 
 module.exports = { sendTextMessage };

@@ -22,7 +22,7 @@ function PrivateRoute({ children }) {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/app">
       <Routes>
         {/* Rota pública */}
         <Route path="/login" element={<Login />} />

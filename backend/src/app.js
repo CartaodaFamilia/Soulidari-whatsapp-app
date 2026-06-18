@@ -1,8 +1,10 @@
+require('dotenv').config();
+const config = require('./config');
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
+app.set('trust proxy', 1);
 
 const { apiLimiter, messageLimiter } = require('./middleware/rateLimiter');
 
@@ -29,6 +31,7 @@ const optInRoutes = require('./routes/optIns');
 const templateRoutes = require('./routes/templates');
 const businessRoutes = require('./routes/businesses');
 const contactRoutes = require('./routes/contacts');
+const settingsRoutes = require('./routes/settings');
 
 app.use('/webhook', webhookRoutes);
 app.use('/api/auth', authRoutes);
@@ -38,6 +41,7 @@ app.use('/api/opt-ins', optInRoutes);
 app.use('/api/templates', templateRoutes);
 app.use('/api/businesses', businessRoutes);
 app.use('/api/contacts', contactRoutes);
+app.use('/api/settings', settingsRoutes);
 
 app.get('/', (req, res) => {
   res.json({ status: 'online', app: 'Soulidari WhatsApp' });

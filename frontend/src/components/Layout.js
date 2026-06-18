@@ -183,7 +183,7 @@ const Layout = ({ children }) => {
     <img src="https://ui-avatars.com/api/?name=Admin&background=059669&color=fff" alt="Avatar" />
   </div>
   <button
-    onClick={() => { localStorage.removeItem('token'); window.location.href = '/login'; }}
+    onClick={() => { localStorage.removeItem('token'); window.location.href = '/'; }}
     className="p-2 hover:bg-gray-100 rounded-full text-gray-500 hover:text-red-500 transition-colors"
     title="Sair"
   >

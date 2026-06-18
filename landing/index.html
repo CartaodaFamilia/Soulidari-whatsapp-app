@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulidari – Plataforma de WhatsApp Business para empresas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: #075e54;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+        .btn-login {
+            background: #25d366;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-login:hover {
+            background: #128c7e;
+        }
+        .hero {
+            background: linear-gradient(135deg, #075e54 0%, #128c7e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            background: #25d366;
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #075e54;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .features {
+            padding: 60px 0;
+            background: #f4f4f4;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .feature-card h3 {
+            color: #075e54;
+            margin-bottom: 15px;
+        }
+        .about {
+            padding: 60px 0;
+        }
+        footer {
+            background: #333;
+            color: #ddd;
+            padding: 40px 0 20px;
+            font-size: 0.9rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: #25d366;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Soulidari</div>
+                <div class="nav-links">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#funcionalidades">Funcionalidades</a>
+                    <a href="/privacy.html">Privacidade</a>
+<a href="/terms.html">Termos</a>
+<a href="/delete-data.html">Exclusão de Dados</a>
+                    <a href="/app" class="btn-login">Entrar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Comunique-se com seus clientes via WhatsApp oficial</h1>
+            <p>Plataforma Tech Provider homologada pela Meta – envio em massa, atendimento automatizado e gestão de opt-in</p>
+            <a href="#sobre" class="btn-primary">Comece agora</a>
+        </div>
+    </section>
+
+    <section id="funcionalidades" class="features">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:20px;">Recursos poderosos</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>📨 Disparo em massa</h3>
+                    <p>Envie milhares de mensagens personalizadas com apenas alguns cliques, respeitando a política do WhatsApp.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>✅ Gestão de Opt-in</h3>
+                    <p>Registro automático de consentimento e relatórios completos para garantir conformidade com a LGPD.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Templates aprovados</h3>
+                    <p>Crie e gerencie templates de mensagem, com histórico de aprovação pela Meta.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔄 Webhook para conversas</h3>
+                    <p>Receba respostas em tempo real e mantenha um histórico completo de conversas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2 style="margin-bottom:20px;">Sobre a Soulidari</h2>
+            <p>A Soulidari é uma plataforma de comunicação oficial via WhatsApp Business API, desenvolvida para empresas que buscam se conectar com seus clientes de forma escalável, segura e em conformidade com as políticas da Meta. Atuamos como Tech Provider, facilitando a integração de números de WhatsApp, gestão de consentimento e envio de mensagens transacionais e promocionais.</p>
+            <br>
+            <p><strong>CNPJ:</strong> 39.154.008/0001-48</p>
+            <p><strong>Endereço:</strong>AV Brasil 295 Sala 13, ITUPEVA, SP - Brasil</p>
+            <p><strong>Contato:</strong>admsoulidari@gmail.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/privacy.html">Privacidade</a>
+<a href="/terms.html">Termos</a>
+<a href="/delete-data.html">Exclusão de Dados</a>
+                <a href="/login">Acessar o Sistema</a>
+            </div>
+            <div class="copyright">
+                © 2026 Soulidari – Todos os direitos reservados. | WhatsApp Business Solution Provider
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

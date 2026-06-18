@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Search, FileText, CheckCircle2, Clock, AlertCircle, X } from 'lucide-react';
-import axios from 'axios';
+import api from '../services/api';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 const statusStyles = {
   approved: {
@@ -76,7 +75,7 @@ function Templates() {
 
   const fetchTemplates = async () => {
     try {
-      const res = await axios.get(`${API}/api/templates`);
+      const res = await api.get('/templates');
       setTemplates(res.data);
     } catch (err) {
       console.error('Erro ao buscar templates', err);
@@ -117,7 +116,7 @@ function Templates() {
 
     setLoading(true);
     try {
-      await axios.post(`${API}/api/templates`, {
+      await api.post('/templates', {
         name: form.name,
         display_name: form.display_name,
         categoria: form.categoria,

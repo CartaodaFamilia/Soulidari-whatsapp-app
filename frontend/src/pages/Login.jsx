@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const API = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API = '';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -11,9 +11,9 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API}/api/auth/login`, { email, password });
+      const res = await axios.post(`/api/auth/login`, { email, password });
       localStorage.setItem('token', res.data.token);
-      window.location.href = '/';
+      window.location.href = '/app';
     } catch (err) {
       setError('Credenciais inválidas.');
     }
